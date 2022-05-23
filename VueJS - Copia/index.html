@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="./vue.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        10 E 5 <br>
+        Somar: {{somar()}} <br>
+        Subtrair: {{subtrair()}} <br>
+        Multiplicar: {{multiplicar()}} <br>
+        Dividir: {{dividir()}} <br>
+        Número Aléatorio: {{numeroAleatorio()}} <br> <br>
+        <a :href="site">Github</a>
+        <p :class="cor" class="negrito-">Entendendo a diretiva v-bind</p>
+        <input type="text" :placeholder="instrucaoDePreenchimento" :value="valor">
+        <input type="checkbox" :checked="check"> <br>
+        <div class="mensagem">
+            {{'primeiras letras:'+mensagem.substr(0,3)}} <br>
+        {{mensagem+':'+'2+2:'+(2+2)}} <br>
+        <input :class="teste ? 'verde' : estilo" type="text" :value="mensagem" :placeholder="instrucaoDePreenchimento">
+        </div>
+        
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app', // id
+            data: {
+                n1: 10,
+                n2: 5,
+                site:'https://github.com/SamuelPereiraBrandao',
+                cor: 'verde',
+                instrucaoDePreenchimento: 'Placeholder - Diretiva v-bind',
+                valor:'Entendendo a diretiva v-bind',
+                check: true,
+                mensagem: 'Expressão',
+                estilo: 'azul',
+                teste: false,
+
+
+            },
+            methods: {  // convencional
+                somar: function somar(){
+                    return this.n1 + this.n2
+                },
+                subtrair: function(){ // anônima
+                    return this.n1 - this.n2;
+                },
+                multiplicar: () => {  //arrow function
+                    return 10 * 5;
+
+                },
+                dividir(){ // forma enxuta de definir os pares de chave/valor
+                    return this.n1 / this.n2;
+                },
+                numeroAleatorio: function numeroAleatorio(){
+                    return Math.random();
+                },
+
+
+            },
+
+        })
+    </script>
+</body>
+</html>

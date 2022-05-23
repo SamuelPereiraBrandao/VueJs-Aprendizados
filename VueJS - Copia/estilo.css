@@ -1,0 +1,22 @@
+body{
+    background-color: rgba(16, 81, 157, 0.364);
+}
+#app{
+    font-size: 35px;
+    background-color: rgba(0, 0, 0, 0.403);
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.verde{
+    background-color: rgb(4, 211, 4);
+    border-radius: 10px;
+}
+.negrito {
+    font-weight: bold;
+}
+.azul {
+    background-color: rgba(0, 110, 255, 0.593);
+    border-radius: 10px;
+}
