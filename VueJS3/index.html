@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="./vue.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        @ ou v-bind | Digite:<input type="text" @keyup="imprimirTexto('Enviando parâmetro',5)"> 
+        <button @click="mensagemAlerta($event,'texto teste',100)">Enviar</button>
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app', // id
+            data: {
+                xyz: true,
+
+            },
+            methods: {
+                imprimirTexto(texto,n){
+                    console.log(texto)
+                    console.log(n)
+                    console.log(this.xyz)
+                },
+                mensagemAlerta(evento, p1, p2){
+                    alert('Mensagem Enviada')
+                    console.log(evento,p1,p2)
+                }
+
+            },
+        })
+    </script>
+</body>
+</html>
