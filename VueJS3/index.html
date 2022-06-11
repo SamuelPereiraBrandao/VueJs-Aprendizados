@@ -11,30 +11,37 @@
 </head>
 <body>
     <div id="app">
-        @ ou v-bind | Digite:<input type="text" @keyup="imprimirTexto('Enviando parâmetro',5)"> 
-        <button @click="mensagemAlerta($event,'texto teste',100)">Enviar</button>
-
+        <div class="borda div-principal" :class="cor">
+        cor: {{cor}}   
+        <br>
+        Posição X do mouse:{{posicaoX}}
+        <br>
+        Posição Y do mouse: {{posicaoY}}
+        </div>
+        <hr>
+        <div @click="mudarcor('verde')" class="borda div-comum"><p class="p">click</p></div>
+        <div class="borda div-comum" @mouseover="mudarcor('azul')" @mouseout="mudarcor('vermelho')"><p class="p">entrada/saida</p></div>
+        <div class="borda div-comum" @mousemove="coordenadas($event)"><p class="p">coordenadas</p></div>
     </div>
     <script>
         const vm = new Vue({
             el: '#app', // id
-            data: {
-                xyz: true,
-
+            data: { 
+                cor: 'branco',
+                posicaoX:0,
+                posicaoY:0,
             },
             methods: {
-                imprimirTexto(texto,n){
-                    console.log(texto)
-                    console.log(n)
-                    console.log(this.xyz)
+                mudarcor(c){
+                    this.cor = c;
                 },
-                mensagemAlerta(evento, p1, p2){
-                    alert('Mensagem Enviada')
-                    console.log(evento,p1,p2)
+                coordenadas(e){
+                    this.posicaoX = e.clientX;
+                    this.posicaoY = e.clientY;
+                    console.log(e.clientX, e.clientY);
                 }
 
-            },
-        })
+            }})
     </script>
 </body>
 </html>

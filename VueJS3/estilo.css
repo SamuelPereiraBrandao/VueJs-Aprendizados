@@ -1,15 +1,41 @@
 body{
     background-color: rgba(16, 81, 157, 0.364);
 }
-#app{
-    font-size: 20px;
-    background-color: rgba(0, 0, 0, 0.403);
-    border-radius: 20px;
-    padding: 5px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+.borda {
+    border: 1px solid;
+}
+.div-principal {
+    width: 200px;
+    height: 200px;
+    padding: 50px;
     align-items: center;
-    flex-direction: row;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+}
+.div-comum {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    padding: 30px;
+}
+.verde{
+    background-color: green;
+}
+.branco{
+    background-color: white;
+}
+.azul{
+    background-color: blue;
+}
+.vermelho{
+    background-color: red;
+}
+.p{
+    text-align: center;
+    font-size: 25px;
+    text-transform: capitalize;
+    flex-wrap: wrap;
+}
+* {
+    text-transform: capitalize;
+
 }
