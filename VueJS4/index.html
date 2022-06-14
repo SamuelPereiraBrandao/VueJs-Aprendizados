@@ -7,19 +7,54 @@
     <link rel="stylesheet" href="estilo.css">
     <script src="./vue.js"></script>
 
-    <title>Document</title>
+    <title>VueJS</title>
 </head>
 <body>
     <div id="app">
-        <a href="https:\\github.com/SamuelPereiraBrandao">a</a>
+        <a href="https:\\github.com/SamuelPereiraBrandao" target="_blank" @:click.prevent="prevenircomportamentoPadrao()">Link</a>
+        <br>
+        Mensagem:{{msg}}
+        <hr>
+        <button @click.once="executarUmaVez()">Botão</button>
+        <p>cliques: {{cliques}}</p>
+        <hr>
+        <form @submit.prevent.once="prevenirUmaVez()" action="">
+            <button type="submit">Enviar</button>
+
+        </form>
+        <p>Formulario: {{ formulario}}</p>
+        <hr>
+        Shift + Enter, ENVIA:
+        <input type="text" @keyup.w="capturandoTeclas($event)" @keyup.a="capturandoTeclas($event)" @keyup.s="capturandoTeclas($event)" @keyup.d="capturandoTeclas($event)" @keyup.Shift.Enter.once="capturandoTeclasFinal($event)">
+        <p> <br> Teclas W, A, S, D: {{teclas}}</p>
     </div>
     <script>
         const vm = new Vue({
             el: '#app', // id
             data:{
+                msg: 'click no link',
+                cliques: 0,
+                formulario:'',
+                teclas: '',
 
             },
             methods: {
+                prevenircomportamentoPadrao(){
+                    this.msg = 'Link clicado';
+                },
+                executarUmaVez(){
+                    this.cliques++;
+                },
+                prevenirUmaVez(){
+                    this.formulario ="Prevenindo o comportamento padrão";
+                },
+                capturandoTeclas(){
+                    this.teclas += event.key;
+                        },
+                        capturandoTeclasFinal(){
+                            this.teclas = 'Mensagem Enviada'
+                            
+                        }
 
             }})
     </script>

@@ -6,10 +6,10 @@ body{
     background-color: rgba(0, 0, 0, 0.403);
     border-radius: 20px;
     padding: 5px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: capitalize;
+    text-transform: uppercase;
 }
