@@ -20,11 +20,17 @@
         <hr>
         <!-- v-if e v-else -->
         Idade: <input type="text" id="inputIdade" @blur="setIdade()">
-       <p v-if="idade < 18">Menor de idade</p>
+        <p v-if="idade == ''">Digite a idade</p>
+       <p v-else-if="idade < 18">Menor de idade</p>
        <p v-else>Maior de idade</p>
-
+        <hr>
        <!-- v-if, v-else-if, e v-else-->
-       
+       Nota: <input type="text" id="inputNota" @blur="setNota()">
+       <p v-if="nota == ''">Digite a nota do aluno</p>
+       <p v-else-if="nota >= 7 && nota <= 10">Aluno aprovado!</p>
+       <p v-else-if="nota >= 5 && nota <= 7">Aluno em recuperação!</p>
+       <p v-else-if="nota >= 0 && nota <= 5">Aluno reprovado!</p>
+       <p v-else>Nota informada é inválida!</p>
     </div>
     <script>
                 const vm = new Vue({
@@ -32,11 +38,16 @@
             data:{
                 saldo: 4570.17,
                 exibirSaldo: false,
-                idade: 0
+                idade: 0,
+                nota: 0
             },
             methods: {
                 setIdade(){
-                    this.idade = inputIdade.value
+                    this.idade = inputIdade.value;
+                },
+                setNota(){
+                    this.nota = inputNota.value;
+                    console.log(this.nota);
                 }
             }})
     </script>
