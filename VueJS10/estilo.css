@@ -1,0 +1,13 @@
+body{
+    background-color: rgba(16, 81, 157, 0.364);
+}
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#app{
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.403);
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
