@@ -10,16 +10,98 @@
     <title>VueJS</title>
 </head>
 <body>
-    <div id="app">
+
+    <div id="app">  
+          <ul>
+        <li v-for="c in comentarios">{{c.id}} - {{c.comentario}}</li> <!-- cria tabela-->
+    </ul>
+        <ul>
+            <button @click="adicionarElemento()">Adicionar</button>
+            <button @click="removerElemento()">Remover</button>
+            <button @click="modificarElemento()">Atualizar</button>
+            <hr>
+          <ul>
+        <li v-for="n in numero">{{n}}</li> <!-- cria tabela-->
+    </ul>
+        <ul>
+            <p>1 tabela</p>
+            <li v-for="curso in cursos" v-text="curso"></li>
+            <p>2 tabela</p>
+            <li v-for="(curso, key) in cursos">{{key}} - {{curso}}</li>
+            <p>3 tabela</p>
+            <li v-for="(curso, key) in cursos" v-text="key +' - ' + curso"></li></ul>
+            <hr>
+            <table border="1">
+                 <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Descrição</th>
+                    </tr>
+                    <tbody>
+                        <tr v-for="({titulo, descricao}, chave) in cursos2"> <!-- destructuring assignment-->
+                            <td>{{chave}}</td>
+                            <td>{{titulo}}</td>
+                            <td>{{descricao}}</td>
+                        </tr>
+                    </tbody>
+                </thead>
+            </table>
+            <hr>
+            <ul>
+                <li v-for="p in publicacacoes" class="lii" :key="p.id"> <!-- mantém o pai e os filhos como 1 só elemento-->
+                    <div>
+                        {{p.publicacao}}
+                        <hr>
+                        <input type="text">
+                    </div>
+                </li>
+            </ul>
+        <button @click="misturarArray()">Misturar Publicações</button>
     </div>
     <script>
                 const vm = new Vue({
             el: '#app', // id
             data:{
+                comentarios:[
+                    {id: 1, comentario:'coméntario 1'},
+                    {id: 2, comentario:'coméntario 2'},
+                    {id: 3, comentario:'coméntario 3'},
+                ],
+                numero: 5,
+                cursos:['Laravel', 'Web completo','Banco de Dados', 'Solid', 'Angular'],
+                cursos2:{
+                    1000:{titulo:'Laravel', descricao:'Domine o framework PHP mais poderoso do mundo'},
+                    1001:{titulo:'Banco de Dados', descricao:'Aprenda os principais BDs relacionais do mercado'},
+                },
+                publicacacoes:[
+                    {id:1, publicacao:'Publicação 1'},
+                    {id:2, publicacao:'Publicação 2'},
+                    {id:3, publicacao:'Publicação 3'},
+                ],
 
             },
             methods: {
-
+                misturarArray(){
+                    let = misturado = []
+                    misturado[0] = this.publicacacoes[2]
+                    misturado[1] = this.publicacacoes[0]
+                    misturado[2] = this.publicacacoes[1]
+                    this.publicacacoes = misturado
+                },
+                adicionarElemento(){
+                    //this.comentarios[3] = {id:4, comentario:'Novo comentário'}
+                    //console.log(this.comentarios)  // metodo push para implementar
+                    this.comentarios.push({id:4, comentario:'novo comentário'})
+                }, //push adiciona 
+                removerElemento(){
+                    this.comentarios.pop();
+                }, //pop  remove ultimo array adici onado
+                modificarElemento(){
+                  //  this.comentarios[1] = {id:2, comentario:'comentário 2 atualizado'}
+                    //console.log(this.comentarios)
+                    this.$set(this.comentarios, 1, {id:2, comentario:'comentário 2 atualizado'})
+                }
             }})
     </script>
 </body>
