@@ -11,16 +11,41 @@
 </head>
 <body>
     <div id="app">
+        <span>Paciente</span> <input type="text" v-model="paciente" :placeholder="placeholde">
+        <br>
+        <ul>
+            <li v-for="p in lista"> {{p.nome}}, {{p.idade}} anos</li>
+        </ul>
     </div>
     <script>
                 const vm = new Vue({
             el: '#app', // id
             data:{
-
+                paciente:'',
+                pacientes:[
+                    {nome:'Jorge Sant', idade:15},
+                    {nome:'Jose Antonio', idade:55},
+                    {nome:'Jonatan Alberto', idade:18},
+                    {nome:'Junior Silva', idade:23},
+                    {nome:'Jamal Oliveira', idade:45},
+                    {nome:'Julho Silva', idade:15},
+            ],
+            lista:[],
+            placeholde:'Nomes com a letra J'
             },
             methods: {
 
-            }})
+            },
+            computed:{},
+            watch:{ //observar a mudança de estado do atributo
+                paciente(valorNovo, valorAntigo){
+                    console.log(valorNovo)
+                   this.lista = this.pacientes.filter(p => p.nome.match(valorNovo))
+                
+                }
+            }
+
+        })
     </script>
 </body>
 </html>
