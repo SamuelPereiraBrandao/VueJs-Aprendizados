@@ -11,3 +11,9 @@ body{
     padding: 5px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.imgnova{
+        max-width:640px;
+        max-height:448px;
+        width: auto;
+        height: auto;
+}
