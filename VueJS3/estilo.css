@@ -8,14 +8,29 @@ body{
     width: 200px;
     height: 200px;
     padding: 50px;
-    align-items: center;
+
+}
+.centro {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.divdireita{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 10%;
+}
+.divesquerda{
+    display:flex;
+    justify-content: flex-start;
 }
 .div-comum {
     width: 150px;
     height: 150px;
-    display: inline-block;
     padding: 30px;
+    margin-left: 10px;
+    
 }
 .verde{
     background-color: green;

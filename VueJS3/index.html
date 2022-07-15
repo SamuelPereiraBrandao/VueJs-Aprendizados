@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,39 +10,55 @@
 
     <title>VueJS</title>
 </head>
+
 <body>
     <div id="app">
-        <div class="borda div-principal" :class="cor">
-        cor: {{cor}}   
-        <br>
-        Posição X do mouse:{{posicaoX}}
-        <br>
-        Posição Y do mouse: {{posicaoY}}
+        <div class="centro">
+            <div class="divesquerda">
+                <div class="borda div-principal" :class="cor">
+                    cor: {{cor}}
+                    <br>
+                    Posição X do mouse:{{posicaoX}}
+                    <br>
+                    Posição Y do mouse: {{posicaoY}}
+                </div>
+            </div>
+            <div class="divdireita">
+                <div @click="mudarcor('verde')" class="borda div-comum">
+                    <p class="p">click</p>
+                </div>
+                <div class="borda div-comum" @mouseover="mudarcor('azul')" @mouseout="mudarcor('vermelho')">
+                    <p class="p">entrada/saida</p>
+                </div>
+                <div class="borda div-comum" @mousemove="coordenadas($event)">
+                    <p class="p">coordenadas</p>
+                </div>
+            </div>
         </div>
-        <hr>
-        <div @click="mudarcor('verde')" class="borda div-comum"><p class="p">click</p></div>
-        <div class="borda div-comum" @mouseover="mudarcor('azul')" @mouseout="mudarcor('vermelho')"><p class="p">entrada/saida</p></div>
-        <div class="borda div-comum" @mousemove="coordenadas($event)"><p class="p">coordenadas</p></div>
+
+
     </div>
     <script>
         const vm = new Vue({
             el: '#app', // id
-            data: { 
+            data: {
                 cor: 'branco',
-                posicaoX:0,
-                posicaoY:0,
+                posicaoX: 0,
+                posicaoY: 0,
             },
             methods: {
-                mudarcor(c){
+                mudarcor(c) {
                     this.cor = c;
                 },
-                coordenadas(e){
+                coordenadas(e) {
                     this.posicaoX = e.clientX;
                     this.posicaoY = e.clientY;
                     console.log(e.clientX, e.clientY);
                 }
 
-            }})
+            }
+        })
     </script>
 </body>
+
 </html>
