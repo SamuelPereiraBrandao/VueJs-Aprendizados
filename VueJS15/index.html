@@ -12,16 +12,24 @@
 </head>
 
 <body>
-    <div class="imgnova">
-        <img src="https://miro.medium.com/max/640/0*i1v1In2Tn4Stnwnl.jpg" alt="">
-    </div>
     <div id="app">
+        <h1>Manipulando css com VueJS</h1>
+        <p :class="[estilo4, {vermelho:eFundoVermelho, destaque:eDestaque,'texto-branco':eBranco}]">Definindo classes com arrays</p>
+        <button @click="eFundoVermelho = !eFundoVermelho"> Mudar Fundo Vermelho</button>
+        <button @click="eBranco = !eBranco">Mudar para Branco</button>
+        <button @click="eDestaque = !eDestaque">Mudar Destaque</button>
     </div>
     <script>
         const vm = new Vue({
             el: '#app', // id
             data: {
-
+                estilo1:'vermelho',
+                estilo2:'texto-branco',
+                estilo3:'destaque',
+                estilo4:'',
+                eDestaque:false,
+                eFundoVermelho:false,
+                eBranco:false,
             },
             methods: {
 
