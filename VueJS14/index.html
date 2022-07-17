@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,19 +10,36 @@
 
     <title>VueJS</title>
 </head>
+
 <body>
     <div id="app">
-        
+        <h1>Manipulando css com VueJS</h1>
+        <p :class="{vermelho: eVermelho, 'texto-branco': eTextoBranco, destaque: eDestaque }">Definindo classes com objetos</p> <!--Aspas simples para selecionar nomes com traços ---- |  -->
+        <p>Ativar / Desativar:</p>
+        <button :class="{tag1:eFundo}" @click="eVermelho = !eVermelho"><span v-text="eVermelho ? 'Remover background' : 'Adicionar background'"> </span>
+        </button>
+        <button :class="{tag2: eTexto}" @click="eTextoBranco = !eTextoBranco">
+            <span v-text="eTextoBranco ? 'Adicionar Texto Branco' : 'Remover Texto Branco'"></span>
+        </button>
+        <button :class="{tag3: eDestaques}" @click="eDestaque = !eDestaque"><span v-text="eDestaque ? 'Adicionar Destaque' : 'Remover Destaque'"></span></button>
     </div>
     <script>
-                const vm = new Vue({
+        const vm = new Vue({
             el: '#app', // id
-            data:{
+            data: {
+                eVermelho:true,
+                eTextoBranco:true,
+                eDestaque:true,
+                eFundo:true,
+                eTexto:true,
+                eDestaques:true,
 
             },
             methods: {
 
-            }})
+            }
+        })
     </script>
 </body>
+
 </html>

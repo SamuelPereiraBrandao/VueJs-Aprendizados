@@ -11,3 +11,32 @@ body{
     padding: 5px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.vermelho{
+    background-color: rgba(255, 0, 0, 0.527);
+    border-radius: 4px;
+}
+.texto-branco{
+    color: white;
+}
+.destaque{
+    font-weight: bold;
+}
+button{
+    width: 300px;
+    height: 100px;
+}
+.tag1:hover{
+    background-color: rgba(255, 0, 0, 0.527);
+    transition: 0.5s;
+}
+.tag2:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+.tag3:hover{
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+    font-weight: bold;
+}
